@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Rotate_Controller : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public float rotateSpeed;
+    private float moveX;
+    
     void Update()
     {
-        
+        moveX = Input.GetAxis("Mouse X");
+
+        if (Input.GetMouseButton(0))
+        {
+            transform.Rotate(0f,moveX*rotateSpeed*Time.deltaTime,0f);
+        }
     }
 }
